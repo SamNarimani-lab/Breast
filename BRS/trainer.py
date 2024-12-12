@@ -130,6 +130,9 @@ class BreastTrainer:
                     best_val_loss = val_loss
                     epochs_no_improve = 0
                     best_epoch = epoch
+                    # Save model state and optimizer state 
+                    model_state = self.model.state_dict()
+                    optimizer_state = self.optimizer.state_dict()
                 else:
                     epochs_no_improve += 1
                 
@@ -140,9 +143,7 @@ class BreastTrainer:
             # Calculate training time for cfp
             training_time = time.time() - start_time
             
-            # Save model state and optimizer state 
-            model_state = self.model.state_dict()
-            optimizer_state = self.optimizer.state_dict()
+
 
             fold_results.append({'fold': fold,'results': result,'best_epoch': best_epoch,'last_epoch': epoch - 1 ,
                                  'model_state': model_state,  'optimizer_state': optimizer_state,'training_time': training_time })
