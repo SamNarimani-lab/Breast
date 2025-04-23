@@ -6,7 +6,6 @@ from .segmentation_models import *
 from monai.losses import *
 from torch.nn import BCELoss
 import time
-from .DenseNetmodified import DenseNet
 from torch.optim.lr_scheduler import *
 from monai.networks.nets import *
 import config.config as config
