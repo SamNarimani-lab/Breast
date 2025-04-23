@@ -1,13 +1,3 @@
-# Preprocessing configuration
-
-
-
-
-
-
-#  Model configurations
-
-
 
 # Training configuration
 LR = 0.001
@@ -18,7 +8,7 @@ PATIENCE_M = 10
 ALPHA_M = 0.5
 BETA_M = 0.5
 K_FOLD = 5
-DATASET_DIR = "dataset/processed_data"
+DATASET_DIR = "Directory of training images in json file"
 
 
 ## Scheduler parameters
