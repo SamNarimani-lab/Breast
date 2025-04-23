@@ -9,7 +9,6 @@ from torch.utils.data import DataLoader
 import pandas as pd
 
 
-
 class CustomDataForBreast (Dataset):
     def __init__(self , json_file_path , oversample=False, downsample=False, forced_downsample=False, transform = False
                    , use_subtraction = False ,
@@ -69,8 +68,7 @@ class CustomDataForBreast (Dataset):
     def __len__(self):
         return len(self.file_paths)
     
-    
-    
+     
     def __getitem__(self, idx):
         img_path = self.file_paths[idx]
         pre_contrast_data  , post_contrast_data , mask_data = [] , []  , []
@@ -156,7 +154,7 @@ class CustomDataForBreast (Dataset):
                                         
         elif self.seg_type == 'LBMO':
 
-            df = pd.read_excel(r'C:\Users\Sam Narimani\Desktop\Project\Breast\DCE-MRI_T1w\Stavanger\LBMO.xlsx')
+            df = pd.read_excel(r'Directory of excel file for LMBO')
 
             if len(os.listdir(img_path)) > 3 :
                 for file_name in os.listdir(img_path):
@@ -188,7 +186,7 @@ class CustomDataForBreast (Dataset):
                 mask_nifti = mask_nifti[: , H_min : H_max + 1 , min_slice -1 : max_slice + 1]    
         elif self.seg_type == 'LBMO_pred':
 
-            df = pd.read_excel(r'C:\Users\Sam Narimani\Desktop\Project\Breast\DCE-MRI_T1w\Stavanger\LBMO_test.xlsx')
+            df = pd.read_excel(r'CDirectory of excel file for LMBO_pred')
 
             if len(os.listdir(img_path)) > 3 :
                 for file_name in os.listdir(img_path):
